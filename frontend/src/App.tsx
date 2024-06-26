@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <CoursesProvider>
         <Router>
           <Routes>
-            <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/" element={<CoursesPage />} />
           </Routes>
         </Router>
       </CoursesProvider>
