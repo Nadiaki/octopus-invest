@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import mainRouter from './routes/index';
+import mainRouter from './routes';
 
 const app = express();
 const port = 3001;
