@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import CoursesContext from '../context/CoursesContext';
 import CourseCard from '../components/CourseCard';
 import { Box, Grid, Typography } from '@mui/material';
+import { Course } from '../types';
 
 const CoursesPage: React.FC = () => {
   const context = useContext(CoursesContext);
@@ -33,7 +34,7 @@ const CoursesPage: React.FC = () => {
         Continue Learning
       </Typography>
       <Grid container spacing={2}>
-        {startedCourses.map(course => (
+        {startedCourses.map((course: Course) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={course.id}>
             <CourseCard course={course} progress={getCourseProgress(course.id)} />
           </Grid>
@@ -43,7 +44,7 @@ const CoursesPage: React.FC = () => {
         You Might Also Like
       </Typography>
       <Grid container spacing={2}>
-        {notStartedCourses.map(course => (
+        {notStartedCourses.map((course: Course) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={course.id}>
             <CourseCard course={course} progress={getCourseProgress(course.id)} />
           </Grid>

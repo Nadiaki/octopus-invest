@@ -1,19 +1,5 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
-
-interface Course {
-  id: number;
-  title: string;
-  author: string;
-  lessons: number;
-  time: string;
-  likes: number;
-}
-
-interface UserProgress {
-  courseId: number;
-  completedLessons: number;
-  totalLessons: number;
-}
+import { Course, UserProgress } from '../types'; // Import the shared types
 
 interface CoursesContextType {
   courses: Course[];

@@ -1,15 +1,7 @@
 import React from 'react';
-import { Card, CardContent, Typography, Button, CardActions, Box } from '@mui/material';
+import { Card, CardContent, Typography, Button, CardActions, Box, CardMedia } from '@mui/material';
 import { Link } from 'react-router-dom';
-
-interface Course {
-  id: number;
-  title: string;
-  author: string;
-  lessons: number;
-  time: string;
-  likes: number;
-}
+import { Course } from '../types';
 
 interface CourseCardProps {
   course: Course;
@@ -23,7 +15,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, progress }) => {
   const completionPercentage = progress ? (progress.completedLessons / progress.totalLessons) * 100 : 0;
 
   return (
-    <Card sx={{ maxWidth: 345, margin: '8px', position: 'relative' }}>
+    <Card sx={{ maxWidth: 400, margin: '8px', position: 'relative' }}>
       {progress && (
         <Box
           sx={{
@@ -39,6 +31,12 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, progress }) => {
           {completionPercentage.toFixed(0)}% complete
         </Box>
       )}
+      <CardMedia
+        component="img"
+        height="213"
+        image={course.image}
+        alt={`${course.title} image`}
+      />
       <CardContent>
         <Typography variant="h5" component="div">
           {course.title}

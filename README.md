@@ -5,7 +5,8 @@ This monorepo template includes a frontend built using Create React App with the
 
 ## Project Structure
 
-monorepo-template/
+
+octopus-invest/
 ├── .gitignore
 ├── frontend/
 │ ├── node_modules/
