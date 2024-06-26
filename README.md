@@ -4,7 +4,7 @@ This project is a code challenge for building a learning platform called Octopus
 
 ## Project Structure
 
-octopus-invest/
+```octopus-invest/
 |   package-lock.json
 |   package.json
 |   project_tree.txt
@@ -56,6 +56,7 @@ octopus-invest/
         |       
         \---pages
                 CoursesPage.tsx
+                ```
 
 ## Setup
 
