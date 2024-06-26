@@ -33,13 +33,14 @@ monorepo-template/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/nadiaki/fullstack-template.git
-   cd fullstack-template
+   git clone https://github.com/nadiaki/octopus-invest.git
+   cd octopus-invest
 
 2. **Install Dependencies**
+This needs to be done separately for front and back end folders as well as root 
 
     ```npm install
-    npm run install-all
+
 
 3. **Starting the Development Servers**
 
