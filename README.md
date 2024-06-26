@@ -55,8 +55,8 @@ This project is a code challenge for building a learning platform called Octopus
         |       UserContext.tsx
         |       
         \---pages
-                CoursesPage.tsx
-                ```
+                CoursesPage.tsx```
+
 
 ## Setup
 
