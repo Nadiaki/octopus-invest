@@ -1,26 +1,61 @@
+# Octopus Learning Platform Code Challenge
 
-# Monorepo Fullstack Template
-
-This monorepo template includes a frontend built using Create React App with the TypeScript template and a backend built with Node.js, Express, and TypeScript. This template provides a starting point for developing full-stack applications with separate frontend and backend codebases.
+This project is a code challenge for building a learning platform called Octopus Learning Platform. The platform is designed to help users learn various topics through interactive courses. The project includes a frontend built with React and TypeScript, and a backend built with Node.js, Express, and TypeScript.
 
 ## Project Structure
 
-
 octopus-invest/
-├── .gitignore
-├── frontend/
-│ ├── node_modules/
-│ ├── public/
-│ ├── src/
-│ ├── package.json
-│ └── tsconfig.json
-├── backend/
-│ ├── node_modules/
-│ ├── src/
-│ ├── package.json
-│ └── tsconfig.json
-├── package.json
-└── README.md
+|   package-lock.json
+|   package.json
+|   project_tree.txt
+|   README.md
+|   
++---backend
+|   |   package-lock.json
+|   |   package.json
+|   |   tsconfig.json
+|   |   
+|   +---public
+|   |   \---images
+|   |           book.jpg
+|   |           
+|   \---src
+|       |   index.ts
+|       |   
+|       \---routes
+|               courses.ts
+|               index.ts
+|               userProgress.ts
+|               
+\---frontend
+    |   package-lock.json
+    |   package.json
+    |   README.md
+    |   tsconfig.json
+    |   
+    +---public
+    |       index.html
+    |       manifest.json
+    |       robots.txt
+    |       
+    \---src
+        |   App.css
+        |   App.test.tsx
+        |   App.tsx
+        |   index.css
+        |   index.tsx
+        |   setupTests.ts
+        |   types.ts
+        |   
+        +---components
+        |       CourseCard.tsx
+        |       
+        +---context
+        |       CoursesContext.tsx
+        |       UserContext.tsx
+        |       
+        \---pages
+                CoursesPage.tsx
 
 ## Setup
 
@@ -33,40 +68,50 @@ octopus-invest/
 
 1. **Clone the repository**
 
-   ```bash
-   git clone https://github.com/nadiaki/octopus-invest.git
-   cd octopus-invest
+    ```bash
+    git clone https://github.com/nadiaki/octopus-invest.git
+    cd octopus-invest
+    ```
 
 2. **Install Dependencies**
-This needs to be done separately for front and back end folders as well as root 
 
-    ```npm install
+    ```bash
+    npm install
+    ```
 
+### Starting the Development Servers
 
-3. **Starting the Development Servers**
+1. **Start the Servers**
 
-    ```npm start
+    ```bash
+    npm run start
+    ```
 
-This will start:
+    This will start:
+    - The backend server at `http://localhost:3001`
+    - The frontend server at `http://localhost:3000`
 
-The frontend server at `http://localhost:3000`
-The backend server at `http://localhost:3001`
+## Frontend
 
-4. **Frontend**
-The frontend is built using Create React App with the TypeScript template. All frontend-related code is located in the frontend directory.
+The frontend is built using Create React App with the TypeScript template. All frontend-related code is located in the `frontend` directory.
 
-Scripts:
+**Scripts:**
 
-npm start --prefix frontend: Starts the frontend development server.
-npm run build --prefix frontend: Builds the frontend application for production.
-npm test --prefix frontend: Runs the frontend tests.
-npm run eject --prefix frontend: Ejects the Create React App configuration.
+- `npm start --prefix frontend`: Starts the frontend development server.
+- `npm run build --prefix frontend`: Builds the frontend application for production.
+- `npm test --prefix frontend`: Runs the frontend tests.
+- `npm run eject --prefix frontend`: Ejects the Create React App configuration.
 
-5. **Backend**
-The backend is built using Node.js, Express, and TypeScript. All backend-related code is located in the backend directory.
+## Backend
 
-Scripts:
+The backend is built using Node.js, Express, and TypeScript. All backend-related code is located in the `backend` directory.
 
-npm start --prefix backend: Starts the backend development server using ts-node.
-npm run build --prefix backend: Compiles the TypeScript code to JavaScript.
-npm test --prefix backend: Runs the backend tests using Jest.
+**Scripts:**
+
+- `npm start --prefix backend`: Starts the backend development server using ts-node.
+- `npm run build --prefix backend`: Compiles the TypeScript code to JavaScript.
+- `npm test --prefix backend`: Runs the backend tests using Jest.
+
+## Usage
+
+Navigate to [http://localhost:3000/courses](http://localhost:3000/courses) to see the frontend.
