@@ -4,7 +4,8 @@ This project is a code challenge for building a learning platform called Octopus
 
 ## Project Structure
 
-```octopus-invest/
+```
+octopus-invest/
 |   package-lock.json
 |   package.json
 |   project_tree.txt
@@ -55,8 +56,8 @@ This project is a code challenge for building a learning platform called Octopus
         |       UserContext.tsx
         |       
         \---pages
-                CoursesPage.tsx```
-
+                CoursesPage.tsx
+```
 
 ## Setup
 
