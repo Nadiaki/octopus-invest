@@ -61,7 +61,6 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, progress }) => {
         </Box>
       </CardContent>
     </Card>
-
   );
 };
 
