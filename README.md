@@ -4,7 +4,8 @@ This project is a code challenge for building a learning platform called Octopus
 
 ## Project Structure
 
-```octopus-invest/
+```
+octopus-invest/
 |   package-lock.json
 |   package.json
 |   project_tree.txt
@@ -56,7 +57,7 @@ This project is a code challenge for building a learning platform called Octopus
         |       
         \---pages
                 CoursesPage.tsx
-                ```
+```
 
 ## Setup
 
@@ -115,4 +116,4 @@ The backend is built using Node.js, Express, and TypeScript. All backend-related
 
 ## Usage
 
-Navigate to [http://localhost:3000/courses](http://localhost:3000/courses) to see the frontend.
+The project should open a new browser tab but if it doesn't, navigate to [http://localhost:3000](http://localhost:3000) to see the frontend.
