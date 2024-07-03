@@ -6,5 +6,8 @@ services:
     ports: 
       - '9000:27017'
     environment:
-      MONGO_INITDB_ROOT_USERNAME: octopus
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: octopus-admin
+      MONGO_INITDB_ROOT_PASSWORD: octopus-admin-password
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
