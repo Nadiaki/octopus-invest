@@ -3,7 +3,6 @@ import cors from 'cors';
 import path from 'path';
 import mainRouter from './routes';
 import "reflect-metadata"
-import { saveAndLoadCourses } from './database/test';
 
 const app = express();
 const port = 3001;
@@ -23,7 +22,6 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
-saveAndLoadCourses();
 
 
 
