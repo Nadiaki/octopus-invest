@@ -3,9 +3,7 @@ import cors from 'cors';
 import path from 'path';
 import mainRouter from './routes';
 import "reflect-metadata"
-import { AppDataSource } from "./data-source"
-import { User } from "./entity/User"
-import { Course } from './entity';
+import { saveAndLoadCourses } from './database/test';
 
 const app = express();
 const port = 3001;
@@ -25,20 +23,7 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
-
-const course = new Course()
-course.title = "Intro to Investing"
-course.author = "Author 1"
-course.lessons = 10
-course.likes = 100
-course.image = "/images/book.jpg"
-
-const courseRepository = AppDataSource.getRepository(Course)
-
-await courseRepository.save(course)
-const savedCourses = courseRepository.find()
-console.log("Loaded courses: ", savedCourses)
-
+saveAndLoadCourses();
 
 
 
