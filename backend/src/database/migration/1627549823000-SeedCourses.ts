@@ -18,7 +18,6 @@ const courses = [
 export class SeedCourses1627549823000 implements MigrationInterface {
     courseRepository = AppDataSource.getRepository(Course);
 
-
     public async up(queryRunner: QueryRunner): Promise<void> {
 
         // Check if the collection is already populated to prevent duplicates
