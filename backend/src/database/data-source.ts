@@ -1,5 +1,6 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
+import { Course, User } from "../entity";
 
 export const AppDataSource = new DataSource({
     type: "mongodb",
@@ -10,7 +11,7 @@ export const AppDataSource = new DataSource({
     database: "octopus",
     synchronize: true,
     logging: false,
-    entities: ["./dist/entity/*.js"],
+    entities: [Course, User],
     migrations: ["./dist/database/migration/*.js"],
     subscribers: [],
 });
