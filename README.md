@@ -100,6 +100,7 @@ octopus-invest/
     ```
 
 3. Compiling Typescript
+
 Before running any commands, ensure that your TypeScript files are compiled into JavaScript. This can be done with:
 
     ```bash

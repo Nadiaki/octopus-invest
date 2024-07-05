@@ -23,7 +23,7 @@ export const CoursesProvider: React.FC<CoursesProviderProps> = ({ children }) =>
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const coursesResponse = await fetch('/api/courses');
+        const coursesResponse = await fetch('/api/courses/all');
         const coursesData = await coursesResponse.json();
 
         const progressResponse = await fetch('/api/user-progress');

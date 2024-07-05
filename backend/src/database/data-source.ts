@@ -13,8 +13,4 @@ export const AppDataSource = new DataSource({
     entities: ["./dist/entity/*.js"],
     migrations: ["./dist/database/migration/*.js"],
     subscribers: [],
-})
-
-export async function DataSourceInit() {
-    await AppDataSource.initialize()
-}
+});
