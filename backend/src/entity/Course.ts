@@ -7,6 +7,9 @@ export class Course extends BaseEntity {
     id: number
 
     @Column()
+    courseId: number
+
+    @Column()
     title: string
 
     @Column()

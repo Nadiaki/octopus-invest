@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import coursesRouter from './courses';
-import userProgressRouter from './userProgress';
+import usersRouter from './users';
 
 const router = Router();
 
@@ -13,6 +13,6 @@ router.get('/health', (req, res) => {
 });
 
 router.use('/courses', coursesRouter);
-router.use('/user-progress', userProgressRouter);
+router.use('/user-progress', usersRouter);
 
 export default router;

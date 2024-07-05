@@ -8,4 +8,3 @@ export class CourseService {
         return this.courseRepository.find();
     }
 }
-

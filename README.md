@@ -131,3 +131,9 @@ Before running any commands, ensure that your TypeScript files are compiled into
 ## Usage
 
 The project should open a new browser tab but if it doesn't, navigate to [http://localhost:3000](http://localhost:3000) to see the frontend.
+
+To create a new migration use: 
+
+    ```bash
+     npx typeorm migration:create ./backend/src/database/migration/SeedUsers  
+    ```

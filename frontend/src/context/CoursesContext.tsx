@@ -1,9 +1,8 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
-import { Course, UserProgress } from '../types'; // Import the shared types
+import { Course, UserCourseDetails } from '../types'; // Import the shared types
 
 interface CoursesContextType {
-  courses: Course[];
-  progress: UserProgress[];
+  courseDetails: UserCourseDetails | null;
   loading: boolean;
   error: string | null;
 }
@@ -15,22 +14,24 @@ interface CoursesProviderProps {
 const CoursesContext = createContext<CoursesContextType | undefined>(undefined);
 
 export const CoursesProvider: React.FC<CoursesProviderProps> = ({ children }) => {
-  const [courses, setCourses] = useState<Course[]>([]);
-  const [progress, setProgress] = useState<UserProgress[]>([]);
+  const [courseDetails, setCourseDetails] = useState<UserCourseDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const coursesResponse = await fetch('/api/courses/all');
+        const coursesResponse = await fetch('/api/courses/details/1');
         const coursesData = await coursesResponse.json();
 
-        const progressResponse = await fetch('/api/user-progress');
-        const progressData = await progressResponse.json();
+        const flattenedStartedCourses = coursesData.startedCourses.map((courseObj: { course: Course; completionPercentage: number; }) => {
+          return {
+            ...courseObj.course,
+            completionPercentage: courseObj.completionPercentage
+          };
+        });
 
-        setCourses(coursesData);
-        setProgress(progressData.progress);
+        setCourseDetails({ startedCourses: flattenedStartedCourses, otherCourses: coursesData.otherCourses });
         setLoading(false);
       } catch (error) {
         if (error instanceof Error) {
@@ -46,7 +47,7 @@ export const CoursesProvider: React.FC<CoursesProviderProps> = ({ children }) =>
   }, []);
 
   return (
-    <CoursesContext.Provider value={{ courses, progress, loading, error }}>
+    <CoursesContext.Provider value={{ courseDetails, loading, error }}>
       {children}
     </CoursesContext.Provider>
   );

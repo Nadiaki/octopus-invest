@@ -4,7 +4,10 @@ import { UserCourseProgress } from "./UserCourseProgress"
 @Entity()
 export class User extends BaseEntity {
     @ObjectIdColumn()
-    id: number
+    _id: number
+
+    @Column()
+    userId: number
 
     @Column()
     firstName: string
@@ -12,9 +15,6 @@ export class User extends BaseEntity {
     @Column()
     lastName: string
 
-    @Column()
-    age: number
-
-    @Column((type) => UserCourseProgress)
+    @Column(() => UserCourseProgress)
     progress: UserCourseProgress[]
 }

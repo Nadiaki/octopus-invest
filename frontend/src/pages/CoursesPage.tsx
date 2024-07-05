@@ -11,7 +11,7 @@ const CoursesPage: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  const { courses, progress, loading, error } = context;
+  const { courseDetails, loading, error } = context;
 
   if (loading) {
     return <div>Loading...</div>;
@@ -21,12 +21,8 @@ const CoursesPage: React.FC = () => {
     return <div>Error: {error}</div>;
   }
 
-  const getCourseProgress = (courseId: number) => {
-    return progress.find(p => p.courseId === courseId) || null;
-  };
-
-  const startedCourses = courses.filter(course => getCourseProgress(course.id));
-  const notStartedCourses = courses.filter(course => !getCourseProgress(course.id));
+  const startedCourses = courseDetails?.startedCourses ?? [];
+  const notStartedCourses = courseDetails?.otherCourses ?? [];
 
   return (
     <Box sx={{ flexGrow: 1, padding: 2 }}>
@@ -35,8 +31,8 @@ const CoursesPage: React.FC = () => {
       </Typography>
       <Grid container spacing={2}>
         {startedCourses.map((course: Course) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={course.id}>
-            <CourseCard course={course} progress={getCourseProgress(course.id)} />
+          <Grid item xs={12} sm={6} md={4} lg={3} key={course.courseId}>
+            <CourseCard course={course} />
           </Grid>
         ))}
       </Grid>
@@ -45,8 +41,8 @@ const CoursesPage: React.FC = () => {
       </Typography>
       <Grid container spacing={2}>
         {notStartedCourses.map((course: Course) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={course.id}>
-            <CourseCard course={course} progress={getCourseProgress(course.id)} />
+          <Grid item xs={12} sm={6} md={4} lg={3} key={course.courseId}>
+            <CourseCard course={course} />
           </Grid>
         ))}
       </Grid>

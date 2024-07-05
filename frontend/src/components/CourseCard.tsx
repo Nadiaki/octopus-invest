@@ -4,18 +4,13 @@ import { Course } from '../types'; // Import the shared type
 
 interface CourseCardProps {
   course: Course;
-  progress: {
-    completedLessons: number;
-    totalLessons: number;
-  } | null;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ course, progress }) => {
-  const completionPercentage = progress ? (progress.completedLessons / progress.totalLessons) * 100 : 0;
+const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
 
   return (
     <Card sx={{ width: 350, height: 300, margin: '16px', position: 'relative' }}>
-      {progress && (
+      {course.completionPercentage && (
         <Box
           sx={{
             position: 'absolute',
@@ -28,7 +23,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, progress }) => {
             fontSize: '0.8rem'
           }}
         >
-          {completionPercentage.toFixed(0)}% completed
+          {course.completionPercentage.toFixed(0)}% completed
         </Box>
       )}
       <CardMedia

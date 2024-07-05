@@ -1,20 +1,17 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { Course, User } from "../entity";
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 export const AppDataSource = new DataSource({
     type: 'mongodb',
-    host: process.env.DB_HOST,
-    port: parseInt(process.env.DB_PORT || '9000', 10),
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
+    host: 'localhost',
+    port: 9000,
+    username: 'octopus',
+    password: 'octopus-password',
+    database: 'octopus',
     synchronize: true,
     logging: false,
     entities: [Course, User],
-    migrations: ["./dist/database/migration/*.js"],
+    migrations: ["./backend/dist/database/migration/*.js"],
     subscribers: [],
 });
