@@ -1,9 +1,11 @@
 {
   "scripts": {
+    "initialize": "npm i && cd ./backend && npx tsc && cd .. && npx typeorm migration:run -d ./backend/typeorm.config.js",
     "start": "concurrently \"npm run frontend\" \"npm run backend\"",
     "frontend": "npm start --prefix frontend",
     "backend": "npm start --prefix backend",
-    "lint": "eslint \"frontend/src/**/*.{ts,tsx}\" \"backend/src/**/*.{ts,tsx}\""
+    "lint": "eslint \"frontend/src/**/*.{ts,tsx}\" \"backend/src/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint --fix \"frontend/src/**/*.{ts,tsx}\" \"backend/src/**/*.{ts,tsx}\""
   },
   "workspaces": [
     "frontend",
