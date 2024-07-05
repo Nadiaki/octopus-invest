@@ -1,4 +1,5 @@
 import { Entity, ObjectIdColumn , Column, BaseEntity } from "typeorm"
+import { UserCourseProgress } from "./UserCourseProgress"
 
 @Entity()
 export class User extends BaseEntity {
@@ -13,4 +14,7 @@ export class User extends BaseEntity {
 
     @Column()
     age: number
+
+    @Column((type) => UserCourseProgress)
+    progress: UserCourseProgress[]
 }

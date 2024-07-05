@@ -23,7 +23,7 @@ export class SeedCourses1627549823000 implements MigrationInterface {
         // Check if the collection is already populated to prevent duplicates
         const existingCourses = await this.courseRepository.find();
         if (existingCourses.length === 0) {
-            for (const course of courses) {
+            for (const course of existingCourses) {
               await this.courseRepository.save(course);
             }
             console.log('Courses seeded successfully');
