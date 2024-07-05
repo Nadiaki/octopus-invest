@@ -2,63 +2,6 @@
 
 This project is a code challenge for building a learning platform called Octopus Learning Platform. The platform is designed to help users learn various topics through interactive courses. The project includes a frontend built with React and TypeScript, and a backend built with Node.js, Express, and TypeScript.
 
-## Project Structure
-
-```
-octopus-invest/
-|   package-lock.json
-|   package.json
-|   project_tree.txt
-|   README.md
-|   
-+---backend
-|   |   package-lock.json
-|   |   package.json
-|   |   tsconfig.json
-|   |   
-|   +---public
-|   |   \---images
-|   |           book.jpg
-|   |           
-|   \---src
-|       |   index.ts
-|       |   
-|       \---routes
-|               courses.ts
-|               index.ts
-|               userProgress.ts
-|               
-\---frontend
-    |   package-lock.json
-    |   package.json
-    |   README.md
-    |   tsconfig.json
-    |   
-    +---public
-    |       index.html
-    |       manifest.json
-    |       robots.txt
-    |       
-    \---src
-        |   App.css
-        |   App.test.tsx
-        |   App.tsx
-        |   index.css
-        |   index.tsx
-        |   setupTests.ts
-        |   types.ts
-        |   
-        +---components
-        |       CourseCard.tsx
-        |       
-        +---context
-        |       CoursesContext.tsx
-        |       UserContext.tsx
-        |       
-        \---pages
-                CoursesPage.tsx
-```
-
 ## Setup
 
 ### Prerequisites
@@ -68,29 +11,11 @@ octopus-invest/
 
 ### Installation
 
-1. **Clone the repository**
+1. Clone the repository
 
     ```bash
     git clone https://github.com/nadiaki/octopus-invest.git
     cd octopus-invest
-    ```
-
-2. **Install Dependencies**
-
-    ```bash
-    npm install
-    ```
-
-### Configuration 
-
-1. Create an .env file in the backend directory and add the MongoDB connection details:
-
-    ```bash
-    DB_HOST=localhost
-    DB_PORT=9000
-    DB_USERNAME=octopus
-    DB_PASSWORD=octopus-password
-    DB_NAME=octopus
     ```
 
 2. Start up the database
@@ -99,9 +24,22 @@ octopus-invest/
     docker-compose up
     ```
 
-3. Compiling Typescript
+3. Run the helper script
+This helper script will install dependencies, compile typescript and run migrations. You can use it and skip the next steps to starting the development servers, or ignore it and continue with step 4 in this section
 
-Before running any commands, ensure that your TypeScript files are compiled into JavaScript. This can be done with:
+    ```bash
+    npm run initialize
+    ```
+
+4. Install Dependencies
+
+    ```bash
+    npm install
+    ```
+
+5. Compile Typescript
+
+Before running any migration commands, ensure that your TypeScript files are compiled into JavaScript. This can be done with:
 
     ```bash
     cd backend
@@ -109,7 +47,7 @@ Before running any commands, ensure that your TypeScript files are compiled into
     cd ../
     ```
 
-4. Running Migrations
+6. Run Migrations
 
     ```bash
     npx typeorm migration:run -d ./backend/typeorm.config.js
@@ -135,5 +73,5 @@ The project should open a new browser tab but if it doesn't, navigate to [http:/
 To create a new migration use: 
 
     ```bash
-     npx typeorm migration:create ./backend/src/database/migration/SeedUsers  
+     npx typeorm migration:create ./backend/src/database/migration/[Your Migration Name Here]  
     ```
