@@ -81,6 +81,39 @@ octopus-invest/
     npm install
     ```
 
+### Configuration 
+
+1. Create an .env file in the backend directory and add the MongoDB connection details:
+
+    ```bash
+    DB_HOST=localhost
+    DB_PORT=9000
+    DB_USERNAME=octopus
+    DB_PASSWORD=octopus-password
+    DB_NAME=octopus
+    ```
+
+2. Start up the database
+
+    ```bash
+    docker-compose up
+    ```
+
+3. Compiling Typescript
+Before running any commands, ensure that your TypeScript files are compiled into JavaScript. This can be done with:
+
+    ```bash
+    cd backend
+    npx tsc
+    cd ../
+    ```
+
+4. Running Migrations
+
+    ```bash
+    npx typeorm migration:run -d ./backend/typeorm.config.js
+    ```
+
 ### Starting the Development Servers
 
 1. **Start the Servers**
@@ -93,26 +126,6 @@ octopus-invest/
     - The backend server at `http://localhost:3001`
     - The frontend server at `http://localhost:3000`
 
-## Frontend
-
-The frontend is built using Create React App with the TypeScript template. All frontend-related code is located in the `frontend` directory.
-
-**Scripts:**
-
-- `npm start --prefix frontend`: Starts the frontend development server.
-- `npm run build --prefix frontend`: Builds the frontend application for production.
-- `npm test --prefix frontend`: Runs the frontend tests.
-- `npm run eject --prefix frontend`: Ejects the Create React App configuration.
-
-## Backend
-
-The backend is built using Node.js, Express, and TypeScript. All backend-related code is located in the `backend` directory.
-
-**Scripts:**
-
-- `npm start --prefix backend`: Starts the backend development server using ts-node.
-- `npm run build --prefix backend`: Compiles the TypeScript code to JavaScript.
-- `npm test --prefix backend`: Runs the backend tests using Jest.
 
 ## Usage
 
