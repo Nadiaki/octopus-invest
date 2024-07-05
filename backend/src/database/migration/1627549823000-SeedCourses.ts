@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { MigrationInterface } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { Course } from "../../entity/Course";
 
@@ -18,7 +18,7 @@ const courses = [
 export class SeedCourses1627549823000 implements MigrationInterface {
     courseRepository = AppDataSource.getRepository(Course);
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
+    public async up(): Promise<void> {
 
         // Check if the collection is already populated to prevent duplicates
         const existingCourses = await this.courseRepository.find();
@@ -32,7 +32,7 @@ export class SeedCourses1627549823000 implements MigrationInterface {
         }
     }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
+    public async down(): Promise<void> {
 
         await this.courseRepository.clear();
         console.log('Courses removed successfully');

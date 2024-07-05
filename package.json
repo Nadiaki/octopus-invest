@@ -2,18 +2,27 @@
   "scripts": {
     "start": "concurrently \"npm run frontend\" \"npm run backend\"",
     "frontend": "npm start --prefix frontend",
-    "backend": "npm start --prefix backend"
+    "backend": "npm start --prefix backend",
+    "lint": "eslint \"frontend/src/**/*.{ts,tsx}\" \"backend/src/**/*.{ts,tsx}\""
   },
   "workspaces": [
     "frontend",
     "backend"
   ],
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "@eslint/js": "^9.6.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.34.3",
+    "globals": "^15.8.0",
+    "prettier": "^3.3.2",
+    "typescript-eslint": "^7.15.0"
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
-    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^5.62.0",
     "react-router-dom": "^6.24.0"
   }
 }

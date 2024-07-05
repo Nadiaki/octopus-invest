@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography, Button, CardActions, Box, CardMedia } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Card, CardContent, Typography, Box, CardMedia } from '@mui/material';
 import { Course } from '../types'; // Import the shared type
 
 interface CourseCardProps {
